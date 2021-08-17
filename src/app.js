@@ -109,9 +109,31 @@ const noOfChocolates = (chocolates) => {
 
 
 //Progression 6: Sort chocolates based on count in each color. Return array of colors
-const sortChocolateBasedOnCount = (chocolate) => {
-
-}
+const sortChocolateBasedOnCount = (chocolates) => {
+  let chocoObj = chocolates.reduce((acc, curr) => {
+    if (curr in acc) {
+      acc[curr]++;
+    } else {
+      acc[curr] = 1;
+    }
+    return acc;
+  }, {});
+  let sortedArr = chocolates.sort((acc, curr) => {
+    if (chocoObj[curr] > chocoObj[acc]) {
+      return 1;
+    }
+    if (chocoObj[curr] < chocoObj[acc]) {
+      return -1;
+    }
+    if (acc > curr) {
+      return 1;
+    }
+    if (acc < curr) {
+      return -1;
+    }
+  });
+  return sortedArr;
+};
 
 
 //Progression 7: Change ___ chocolates of ____ color to ____ color
@@ -157,6 +179,21 @@ const changeChocolateColorAllOfxCount = (chocolates, color, finalColor) => {
 
 
 //Challenge 1: Remove one chocolate of ____ color from the top
+const removeChocolateOfColor=(chocolates,color)=>{
+    let num = 1;
+    let remove = []
+    for(let i = 0;i<chocolates.length;i++){
+       if(chocolates[i]==color && num>0){
+         chocolates.splice(i,1);
+         num--;
+       }
+       if(num===0){
+           break;
+       }
+    }
+    return chocolates;
+
+}
 
 
 //Challenge 2: Dispense 1 rainbow colored colored chocolate for every 3 chocolates of the same color dispensed
