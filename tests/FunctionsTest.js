@@ -312,7 +312,7 @@ describe("Dispense chocolates of different color - dispenseChocolatesOfColor", f
     expect(actualResult).toEqual(expectedResult);
   });
 
-  it("Dispense 6 red chocolates from the bottom of the dispenser, return them in an array", function () {
+  it("Dispense 6 green chocolates from the bottom of the dispenser, return them in an array", function () {
     var sweets = ["green", "green", "green", "green", "green", "green"];
 
     let expectedResult = ["green", "green", "green", "green", "green", "green"];
